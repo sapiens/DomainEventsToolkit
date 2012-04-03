@@ -22,5 +22,6 @@ namespace DomainEvents.BuiltIns
         public DateTime Time { get; private set; }
 
         public int LogLevel { get; set; }
-    }   
+    }
+   
 }

@@ -50,7 +50,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\src\DomainEventsToolkit\DomainEventsToolkit.csproj">
+    <ProjectReference Include="..\DomainEventsToolkit\DomainEventsToolkit.csproj">
       <Project>{A39F5F81-03A9-4C3D-9A70-4D8DE3F57BA6}</Project>
       <Name>DomainEventsToolkit</Name>
     </ProjectReference>

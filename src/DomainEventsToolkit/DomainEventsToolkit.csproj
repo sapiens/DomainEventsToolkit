@@ -37,7 +37,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuiltIns\DomainEventBase.cs" />
+    <Compile Include="DomainEventBase.cs" />
     <Compile Include="BuiltIns\ILoggableDomainEvent.cs" />
     <Compile Include="BuiltIns\LoggableDomainEvent.cs" />
     <Compile Include="Managers\ApplicationDomainEventsManager.cs" />
