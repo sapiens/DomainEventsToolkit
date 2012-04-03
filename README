@@ -4,5 +4,5 @@ DomainEventsToolkit is a light and easy to use .net 4 library for implementing t
 
 Getting Started
 -----------------
-* Install it via Nugget (to do link)
+* Install it via Nugget https://nuget.org/packages/DomainEventsToolkit
 * See the Wiki for examples :)
