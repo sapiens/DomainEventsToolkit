@@ -48,6 +48,7 @@
     <Compile Include="IHandleDomainEvent.cs" />
     <Compile Include="IPublishDomainEvent.cs" />
     <Compile Include="Internals\IRemoveHandler.cs" />
+    <Compile Include="Managers\Buffer.cs" />
     <Compile Include="Managers\LocalDomainEventsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Internals\Subscription.cs" />

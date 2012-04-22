@@ -25,5 +25,15 @@ namespace DomainEvents
         /// <param name="handler"></param>
         /// <returns></returns>
         IDisposable RegisterHandler(IHandleDomainEvent handler);
+
+        /// <summary>
+        /// Events are captured and not published until buffering ends
+        /// </summary>
+        /// <returns></returns>
+        IDisposable BeginBuffering();
+        /// <summary>
+        /// Flushes the buffer. All captured events are raised.
+        /// </summary>
+        void EndBuffering();
     }
 }

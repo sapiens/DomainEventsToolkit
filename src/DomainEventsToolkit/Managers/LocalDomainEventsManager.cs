@@ -38,6 +38,9 @@ namespace DomainEvents.Managers
             return RegisterHandlerFor<IDomainEvent>(handler.Handle);
         }
 
+        
+      
+
         public IDisposable RegisterHandler<TEvent>(IHandleDomainEvent<TEvent> handler) where TEvent : IDomainEvent
         {
             if (handler == null) throw new ArgumentNullException("handler");
@@ -57,13 +60,51 @@ namespace DomainEvents.Managers
             return _handlers.Where(s => s.CanHandle(evnt)).OrderBy(s => s.IsExactlyFor(evnt) ? 0 : 1).ToArray();
         }
 
+        private Buffer _buffer;
+        public IDisposable BeginBuffering()
+        {
+            lock (_sync)
+            {
+                if (_buffer == null)
+                {
+                    _buffer = new Buffer(this);
+                }
+                return _buffer;
+            }
+        }
+
+        private object _sync = new object();
+
+        public void EndBuffering()
+        {
+            lock (_sync)
+            {
+                if (_buffer == null) throw new InvalidOperationException("Buffering not started");
+                _buffer.Publish();
+                _buffer = null;
+            }
+        }
+
         public void Publish<TEvent>(TEvent evnt) where TEvent : IDomainEvent
+        {
+          lock(_sync)
+          {
+              if (_buffer != null)
+              {
+                  _buffer.AddEvent(evnt);
+                  return;
+              }
+          }
+          PublishEvent(evnt);
+        }
+
+        internal void PublishEvent<TEvent>(TEvent evnt) where TEvent : IDomainEvent
         {
             foreach (var s in GetHandlers(evnt))
             {
                 s.Handle(evnt);
             }
-            if (_parent!=null) _parent.Publish(evnt);
+            if (_parent != null) _parent.Publish(evnt);
         }
 
         internal virtual void Remove(Subscription s)

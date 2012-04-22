@@ -1,14 +1,22 @@
 ﻿using System;
+using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using DomainEvents;
+using DomainEvents.Managers;
 
 namespace Tests
 {
     public class Setup
     {
-         
+        public static IDomainEventsManager LocalManager
+        {
+            get
+            {
+                return new LocalDomainEventsManager();
+            }
+        }
     }
-
 
     class AnEvent:IDomainEvent
     {
@@ -32,7 +40,7 @@ namespace Tests
 
         public MySimpleHandler(StringBuilder s)
         {
-            _s = s;
+            _s = s;            
         }
         public override void Handle(IDomainEvent ev)
         {
