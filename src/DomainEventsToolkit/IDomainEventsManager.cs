@@ -2,7 +2,7 @@ using System;
 
 namespace DomainEvents
 {
-    public interface IDomainEventsManager:IPublishDomainEvent
+    public interface IDomainEventsManager:IPublishDomainEvent,IDisposable
     {
         /// <summary>
         /// Register handler for a domain event

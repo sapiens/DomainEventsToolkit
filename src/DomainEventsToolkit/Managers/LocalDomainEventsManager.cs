@@ -118,6 +118,18 @@ namespace DomainEvents.Managers
             Remove(s);
         }
 
-        
+        internal void Clear()
+        {
+            _handlers.Clear();
+        }
+
+        public void Dispose()
+        {
+            if(_handlers!=null)
+            {
+                _handlers.ForEach(s=>s.Dispose());
+                _handlers = null;
+            }
+        }
     }
 }
