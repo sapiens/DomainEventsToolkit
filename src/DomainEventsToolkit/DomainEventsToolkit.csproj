@@ -40,6 +40,9 @@
     <Compile Include="DomainEventBase.cs" />
     <Compile Include="BuiltIns\ILoggableDomainEvent.cs" />
     <Compile Include="BuiltIns\LoggableDomainEvent.cs" />
+    <Compile Include="EventsCollector.cs" />
+    <Compile Include="IAddEvent.cs" />
+    <Compile Include="ICollectEvents.cs" />
     <Compile Include="Managers\ApplicationDomainEventsManager.cs" />
     <Compile Include="DomainEventHandlerBase.cs" />
     <Compile Include="IApplicationDomainEventsManager.cs" />
