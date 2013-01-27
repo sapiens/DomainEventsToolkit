@@ -1,5 +1,3 @@
-#Welcome to Domain Events Toolkit
-
 ##DomainEventsToolkit has been superseded by [CavemanTools.Infrastructure](https://bitbucket.org/sapiensworks/cavemantools.infrastructure/wiki/Home)
 
 
